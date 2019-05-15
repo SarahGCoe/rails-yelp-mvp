@@ -9,5 +9,6 @@
 
 <div class="form-actions">
   <%= f.button :submit, "add a review", class: "btn btn-primary"%>
+  <%= link_to 'Back to restaurant', restaurant_path(params[:restaurant_id]) %>
 </div>
 <% end %>

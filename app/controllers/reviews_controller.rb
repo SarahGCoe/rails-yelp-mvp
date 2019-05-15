@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def index
-
+    # @restaurant = Restaurant.find(params[:restaurant_id])
+    @reviews = Review.where(params[:restaurant_id])
   end
 
   def new
@@ -9,6 +10,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new(review_params)
     @review.restaurant = Restaurant.find(params[:restaurant_id])
     if @review.save
@@ -16,18 +18,6 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
   end
 
   private
